@@ -1,17 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <div v-if="showModal">
+    <Modal :modaltxt="txt" :textcolor="txtcolor" @close="toggleModal">
+      <select name="" id="">
+        <option value="">Mercedes</option>
+        <option value="">BMW</option>
+      </select>
+      <template v-slot:links>
+        <a href="https://nijat.net">my website</a>
+      </template>
+    </Modal>
+  </div> -->
+  <!--<button @click="toggleModal">Toggle Modal</button>-->
+  <Game />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Modal from "./components/Modal.vue";
+import Game from "./components/Game.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Modal,
+    Game,
+  },
+  data() {
+    return {
+      txt: "Salam qaqa netersen",
+      txtcolor: true,
+      showModal: false,
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+  },
+};
 </script>
 
 <style>
